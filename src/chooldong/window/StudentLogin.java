@@ -15,9 +15,9 @@ public class StudentLogin extends LogIn {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onChoolBtnPressed();
-            }
+            }  // 클래스 내에 출석버튼 press시 실행할 메소드 따로 선언함.
         });
-        super.c.add(choolBtn);
+        super.c.add(choolBtn);  // 슈퍼 클래스의 컨테이너에 출석 버튼 추가
     }
 
     @Override
@@ -25,7 +25,7 @@ public class StudentLogin extends LogIn {
         super.onViewBtnPressed();
     }
 
-    public void onChoolBtnPressed() {  // 버튼 눌렀을 때 동작할
+    public void onChoolBtnPressed() {  // 버튼 눌렀을 때 동작
         System.out.println(this.idField.getText());
         System.out.println(this.pwField.getPassword());
     }

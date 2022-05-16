@@ -1,6 +1,6 @@
 package chooldong.request;
 
-public class MockData extends AbstractDataRequest {
+public class MockData extends AbstractDataRequest {  // 데이터 요청 mock 클래스
 
     @Override
     public String[] getStudentClassList(String token) {
