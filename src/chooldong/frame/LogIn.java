@@ -16,6 +16,7 @@ public class LogIn extends ChooldongFrame {
 
     public void init() {
         setDefault();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         this.idField = new JTextField(20);
         this.pwField = new JPasswordField(20);

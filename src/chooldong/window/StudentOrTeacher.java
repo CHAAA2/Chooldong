@@ -49,7 +49,7 @@ public class StudentOrTeacher extends ChooldongFrame {
                 }
                 default: {
                     l.showWindow();
-                    setVisible(false);
+//                    setVisible(false);
                 }
             }
         }
