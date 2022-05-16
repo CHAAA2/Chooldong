@@ -14,8 +14,8 @@ public class Welcome extends ChooldongFrame {
     AbstractDataRequest dataRequest;
 
     public Welcome() {  // 인자 없이 생성
-        dataRequest = new MockData();
-        authRequest = new MockAuth();
+        this.dataRequest = new MockData();
+        this.authRequest = new MockAuth();
         init();
     }
 

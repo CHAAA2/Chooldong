@@ -17,7 +17,7 @@ public class TeacherLogin extends LogIn {
                 onGenBtnPressed();
             }
         });
-        super.c.add(gen);
+        c.add(gen);
 
     }
     public TeacherLogin(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest) {
@@ -30,17 +30,12 @@ public class TeacherLogin extends LogIn {
         tlInit();
     }
 
-    @Override
-    public void onViewBtnPressed() {
-        super.onViewBtnPressed();
-    }
-
     public void onGenBtnPressed() {
         System.out.println(this.idField.getText());
         System.out.println(this.pwField.getPassword());
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {  // 테스트
         TeacherLogin tl = new TeacherLogin();
         tl.showWindow();
     }
