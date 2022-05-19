@@ -17,7 +17,7 @@ public class TeacherLogin extends LogIn {
                 onGenBtnPressed();
             }
         });
-        c.add(gen);
+        cp.add(gen);
 
     }
     public TeacherLogin(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest) {

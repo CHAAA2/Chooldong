@@ -19,7 +19,7 @@ public class StudentLogin extends LogIn {
                 onChoolBtnPressed();
             }  // 클래스 내에 출석버튼 press시 실행할 메소드 따로 선언함.
         });
-        c.add(choolBtn);  // 슈퍼 클래스의 컨테이너에 출석 버튼 추가
+        cp.add(choolBtn);  // 슈퍼 클래스의 컨테이너에 출석 버튼 추가
     }
 
     public StudentLogin(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest) {

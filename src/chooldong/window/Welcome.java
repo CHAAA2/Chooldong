@@ -5,9 +5,9 @@ import chooldong.request.AbstractDataRequest;
 import chooldong.request.MockAuth;
 import chooldong.request.MockData;
 
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-
+import javax.swing.*;
+import java.awt.event.*;
+import java.awt.*;
 
 public class Welcome extends ChooldongFrame {
     AbstractAuthRequest authRequest;
@@ -28,7 +28,8 @@ public class Welcome extends ChooldongFrame {
     public void init() {
         setDefault();  // 상속됨
         setTitle("출동");
-        this.c.addMouseListener(new MouseAdapter() {  // 마우스 이벤트 리스너
+
+        cp.addMouseListener(new MouseAdapter() {  // 마우스 이벤트 리스너
             @Override
             public void mouseClicked(MouseEvent e) {  // 마우스 클릭시 실행
                 StudentOrTeacher sot = new StudentOrTeacher(dataRequest, authRequest);
@@ -36,6 +37,7 @@ public class Welcome extends ChooldongFrame {
                 dispose();  // 창 닫음
             }
         });
+
     }
 
     public static void main(String[] args) {  // 테스트용
@@ -43,3 +45,4 @@ public class Welcome extends ChooldongFrame {
         wc.showWindow();
     }
 }
+

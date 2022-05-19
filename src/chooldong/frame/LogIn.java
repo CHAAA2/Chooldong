@@ -28,11 +28,11 @@ public class LogIn extends ChooldongFrame {
             }
         });
 
-        c.add(new JLabel("ID"));
-        c.add(idField);
-        c.add(new JLabel("Password"));
-        c.add(pwField);
-        c.add(viewBtn);
+        cp.add(new JLabel("ID"));
+        cp.add(idField);
+        cp.add(new JLabel("Password"));
+        cp.add(pwField);
+        cp.add(viewBtn);
 
         if (authRequest==null){
             authRequest = new MockAuth();

@@ -23,8 +23,8 @@ public class StudentOrTeacher extends ChooldongFrame {
         JButton teacher = new JButton("교수자");
         teacher.addActionListener(new SotListener());
 
-        c.add(teacher);  // 컨테이너에 버튼 추가
-        c.add(student);  // 컨테이너에 버튼 추가
+        cp.add(teacher);  // 컨테이너에 버튼 추가
+        cp.add(student);  // 컨테이너에 버튼 추가
     }
     public StudentOrTeacher() {  // 인자 없이 생성시 모킹 객체
         this.authRequest = new MockAuth();
