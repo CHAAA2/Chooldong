@@ -1,6 +1,7 @@
 package chooldong.frame;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 import chooldong.request.AbstractDataRequest;
@@ -17,10 +18,12 @@ public class LogIn extends ChooldongFrame {
     public void init() {
         setDefault();
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-
+        cp.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 200));
         this.idField = new JTextField(20);
         this.pwField = new JPasswordField(20);
-        JButton viewBtn = new JButton("조회");
+
+        RoundedButton viewBtn = new RoundedButton("조회");
+
         viewBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

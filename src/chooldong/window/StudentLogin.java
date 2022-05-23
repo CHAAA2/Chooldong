@@ -1,18 +1,21 @@
 package chooldong.window;
 
 import chooldong.frame.LogIn;
+import chooldong.frame.RoundedButton;
 import chooldong.request.AbstractAuthRequest;
 import chooldong.request.AbstractDataRequest;
 import chooldong.request.MockAuth;
 import chooldong.request.MockData;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class StudentLogin extends LogIn {
     public void slinit() {
-        JButton choolBtn = new JButton("출석");
+        RoundedButton choolBtn = new RoundedButton("출석");
+
         choolBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
