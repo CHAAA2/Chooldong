@@ -1,12 +1,14 @@
 package chooldong.window;
 
 import chooldong.frame.ChooldongFrame;
+import chooldong.frame.RoundedButton;
 import chooldong.request.AbstractAuthRequest;
 import chooldong.request.AbstractDataRequest;
 import chooldong.request.MockAuth;
 import chooldong.request.MockData;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 
 public class StudentOrTeacher extends ChooldongFrame {
@@ -16,10 +18,15 @@ public class StudentOrTeacher extends ChooldongFrame {
     public void init() {
         setTitle("login");
         setDefault();  // 상속됨
-
-        JButton student = new JButton("학습자");
+        cp.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 200));
+        RoundedButton student = new RoundedButton("학습자");
+        student.setPreferredSize(new Dimension(200, 100));
+        student.setFont(new Font("고딕",Font.BOLD,30));
         student.addActionListener(new SotListener());
-        JButton teacher = new JButton("교수자");
+
+        RoundedButton teacher = new RoundedButton("교수자");
+        teacher.setPreferredSize(new Dimension(200, 100));
+        teacher.setFont(new Font("고딕",Font.BOLD,30));
         teacher.addActionListener(new SotListener());
 
         cp.add(teacher);  // 컨테이너에 버튼 추가

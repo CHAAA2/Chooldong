@@ -1,17 +1,21 @@
 package chooldong.window;
 
 import chooldong.frame.LogInFrame;
+import chooldong.frame.RoundedButton;
 import chooldong.request.AbstractAuthRequest;
 import chooldong.request.AbstractDataRequest;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TeacherLogin extends LogInFrame {
     public void tlInit() {
         this.userType = 't';
-        JButton gen = new JButton("생성");
+
+        RoundedButton gen = new RoundedButton("생성");
+        gen.setBackground(Color.white);
         gen.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
