@@ -1,7 +1,6 @@
 package chooldong.window;
 
 import chooldong.frame.ChooldongFrame;
-import chooldong.frame.LogIn;
 import chooldong.request.AbstractAuthRequest;
 import chooldong.request.AbstractDataRequest;
 import chooldong.request.MockAuth;

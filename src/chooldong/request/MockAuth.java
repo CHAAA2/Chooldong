@@ -5,8 +5,9 @@ import java.util.Objects;
 
 public class MockAuth extends AbstractAuthRequest {  // 인증 요청 mock 클래스
     @Override
-    public String getToken(String id, char[] pw) {
-        if (Objects.equals(id, "myid") && Objects.equals(Arrays.toString(pw), "passwd")) {
+    public String getToken(String id, char[] pw, char userType) {
+        String StringPw = new String(pw);
+        if (Objects.equals(id, "myid") && Objects.equals(StringPw, "passwd")) {
             return "my_token";
         }
         else {

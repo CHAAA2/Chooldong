@@ -1,6 +1,6 @@
 package chooldong.window;
 
-import chooldong.frame.LogIn;
+import chooldong.frame.LogInFrame;
 import chooldong.request.AbstractAuthRequest;
 import chooldong.request.AbstractDataRequest;
 
@@ -8,8 +8,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TeacherLogin extends LogIn {
+public class TeacherLogin extends LogInFrame {
     public void tlInit() {
+        this.userType = 't';
         JButton gen = new JButton("생성");
         gen.addActionListener(new ActionListener() {
             @Override

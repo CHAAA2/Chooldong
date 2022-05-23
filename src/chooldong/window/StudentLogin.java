@@ -1,6 +1,6 @@
 package chooldong.window;
 
-import chooldong.frame.LogIn;
+import chooldong.frame.LogInFrame;
 import chooldong.request.AbstractAuthRequest;
 import chooldong.request.AbstractDataRequest;
 import chooldong.request.MockAuth;
@@ -10,8 +10,9 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class StudentLogin extends LogIn {
+public class StudentLogin extends LogInFrame {
     public void slinit() {
+        this.userType = 's';
         JButton choolBtn = new JButton("출석");
         choolBtn.addActionListener(new ActionListener() {
             @Override
@@ -32,11 +33,6 @@ public class StudentLogin extends LogIn {
         this.dataRequest = new MockData();
         this.authRequest = new MockAuth();
         slinit();
-    }
-
-    @Override
-    public void onViewBtnPressed() {
-        super.onViewBtnPressed();
     }
 
     public void onChoolBtnPressed() {  // 버튼 눌렀을 때 동작

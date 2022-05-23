@@ -8,11 +8,12 @@ import chooldong.request.AbstractAuthRequest;
 import chooldong.request.MockAuth;
 import chooldong.request.MockData;
 
-public class LogIn extends ChooldongFrame {
+public class LogInFrame extends ChooldongFrame {
     protected JTextField idField;
     protected JPasswordField pwField;
     protected AbstractDataRequest dataRequest;
     protected AbstractAuthRequest authRequest;
+    protected char userType;
 
     public void init() {
         setDefault();
@@ -42,24 +43,28 @@ public class LogIn extends ChooldongFrame {
         }
     }
 
-    public LogIn() {
+    public LogInFrame() {
         init();
     }
 
-    public LogIn(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest) {
+    public LogInFrame(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest) {
         this.authRequest = authRequest;
         this.dataRequest = dataRequest;
         init();
     }
 
-    public void requestAuth() {
-        authRequest.getToken(this.idField.getText(), this.pwField.getPassword());
-
+    public String requestAuth() {
+        /*
+        * 토큰 반환
+        * */
+        return authRequest.getToken(this.idField.getText(), this.pwField.getPassword(), this.userType);
     }
 
     public void onViewBtnPressed() {
-         System.out.println(this.idField.getText());
-         System.out.println(this.pwField.getPassword());
-     }
+        String token = this.requestAuth();
+        String[] classList = this.dataRequest.getClassList(token, this.userType);
+        ClassListWindowFrame clwf = new ClassListWindowFrame(classList);
+        clwf.showWindow();
+    }
 
 }
