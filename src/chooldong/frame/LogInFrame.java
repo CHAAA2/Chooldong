@@ -65,7 +65,7 @@ public class LogInFrame extends ChooldongFrame {
 
     public void onViewBtnPressed() {
         String token = this.requestAuth();
-        String[] classList = this.dataRequest.getClassList(token, this.userType);
+        String[] classList = this.dataRequest.getClassList(token);
         ClassListWindowFrame clwf = new ClassListWindowFrame(classList);
         clwf.showWindow();
     }
