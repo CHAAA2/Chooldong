@@ -9,8 +9,6 @@ import chooldong.request.*;
 public class LogInFrame extends ChooldongFrame {
     protected JTextField idField;
     protected JPasswordField pwField;
-    protected AbstractDataRequest dataRequest;
-    protected AbstractAuthRequest authRequest;
     protected char userType;
     protected AuthRequestForm arf;
     protected String token;
@@ -39,23 +37,12 @@ public class LogInFrame extends ChooldongFrame {
         cp.add(pwField);
         cp.add(viewBtn);
 
-        if (authRequest == null) {
-            authRequest = new MockAuth();
-        }
-        if (dataRequest == null) {
-            dataRequest = new MockData();
-        }
     }
 
     public LogInFrame() {
         init();
     }
 
-    public LogInFrame(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest) {
-        this.authRequest = authRequest;
-        this.dataRequest = dataRequest;
-        init();
-    }
 
     public void requestAuth() {
         /*
@@ -63,7 +50,7 @@ public class LogInFrame extends ChooldongFrame {
          * */
         AuthRequestForm arf = new AuthRequestForm(this.idField.getText(), this.pwField.getPassword(), this.userType);
         this.arf = arf;
-        this.token = authRequest.getToken(arf);
+        this.token = Request.authRequest.getToken(arf);
     }
 
     public ClassListWindowFrame getClassListWindow() {
@@ -75,7 +62,7 @@ public class LogInFrame extends ChooldongFrame {
             this.requestAuth();
 
             if (this.arf != null) {
-                this.classList = this.dataRequest.getClassList(this.token);
+                this.classList = Request.dataRequest.getClassList(this.token);
 
                 classListWindowFrame = this.getClassListWindow();
                 classListWindowFrame.setDefault();

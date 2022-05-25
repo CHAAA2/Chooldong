@@ -4,8 +4,6 @@ import chooldong.frame.ChooldongFrame;
 import chooldong.frame.RoundedButton;
 import chooldong.request.AbstractAuthRequest;
 import chooldong.request.AbstractDataRequest;
-import chooldong.request.MockAuth;
-import chooldong.request.MockData;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,13 +32,6 @@ public class StudentOrTeacher extends ChooldongFrame {
         cp.add(student);  // 컨테이너에 버튼 추가
     }
     public StudentOrTeacher() {  // 인자 없이 생성시 모킹 객체
-        this.authRequest = new MockAuth();
-        this.dataRequest = new MockData();
-        init();
-    }
-    public StudentOrTeacher(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest){  // 인자 지정
-        this.dataRequest = dataRequest;
-        this.authRequest = authRequest;
         init();
     }
 
@@ -50,12 +41,12 @@ public class StudentOrTeacher extends ChooldongFrame {
             System.out.println(btn);
             switch (btn) {
                 case "학습자" -> {
-                    StudentLogin sl = new StudentLogin(dataRequest, authRequest);
+                    StudentLogin sl = new StudentLogin();
                     sl.showWindow();
 
                 }
                 case "교수자" -> {
-                    TeacherLogin tl = new TeacherLogin(dataRequest, authRequest);
+                    TeacherLogin tl = new TeacherLogin();
                     tl.showWindow();
 
                 }

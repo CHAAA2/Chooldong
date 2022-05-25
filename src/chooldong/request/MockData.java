@@ -1,7 +1,4 @@
 package chooldong.request;
-
-
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -66,6 +63,11 @@ public class MockData extends AbstractDataRequest {  // 데이터 요청 mock �
         else {
             return false;
         }
+    }
+
+    @Override
+    public String getName(String token) {
+        return token;
     }
 
     public static void main(String[] args) {

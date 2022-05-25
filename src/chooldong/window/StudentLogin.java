@@ -1,21 +1,11 @@
 package chooldong.window;
 
-import chooldong.frame.ClassListWindowFrame;
 import chooldong.frame.LogInFrame;
-import chooldong.frame.RoundedButton;
-import chooldong.request.*;
-
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 public class StudentLogin extends LogInFrame {
     public void init() {
         super.init();
         this.userType = 's';
-    }
-
-    public StudentLogin(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest) {
-        super(dataRequest, authRequest);
     }
 
     public StudentLogin() {

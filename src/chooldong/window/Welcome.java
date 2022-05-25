@@ -11,18 +11,8 @@ import java.awt.event.*;
 import java.awt.*;
 
 public class Welcome extends ChooldongFrame {
-    AbstractAuthRequest authRequest;
-    AbstractDataRequest dataRequest;
 
     public Welcome() {  // 인자 없이 생성
-        this.dataRequest = new MockData();
-        this.authRequest = new MockAuth();
-        init();
-    }
-
-    public Welcome(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest) {  // 요청 객체 지정
-        this.authRequest = authRequest;
-        this.dataRequest = dataRequest;
         init();
     }
 
@@ -31,7 +21,7 @@ public class Welcome extends ChooldongFrame {
         Image img = icon.getImage(); // 이미지 객체
         this.cp = new ChooldongPanel(img);
 
-        StudentOrTeacher sot = new StudentOrTeacher(dataRequest, authRequest);
+        StudentOrTeacher sot = new StudentOrTeacher();
         setDefault();  // 상속됨
         setTitle("출동");
         cp.addMouseListener(new MouseAdapter() {  // 마우스 이벤트 리스너
