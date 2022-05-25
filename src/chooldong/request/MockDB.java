@@ -57,6 +57,7 @@ class Lecture {
 public class MockDB {
     public static HashMap<String, Lecture> lectures = new HashMap<String, Lecture>();
     public static HashMap<String, Person> persons = new HashMap<String, Person>();
+    public static HashMap<String, String> idpw = new HashMap<>();
     public MockDB() {
         String[] studentList = {"이재명", "윤석열", "안철수", "심상정"};
         String[] studentIDList = {"mrlee", "mryoon", "mrahn", "mrsshim"};
@@ -78,12 +79,14 @@ public class MockDB {
         String passwd = "passwd";
 
         for(int i=0; i < 4; i++) {
-            persons.put(studentIDList[i], new Student(studentList[i], studentLectureList[i], studentIDList[i], passwd));
+            persons.put(studentList[i], new Student(studentList[i], studentLectureList[i], studentIDList[i], passwd));
             lectures.put(lectureList[i], new Lecture(lectureList[i], lectureTeacherList[i], lectureStudentList[i]));
+            idpw.put(studentIDList[i], studentList[i]);
         }
 
         for(int i=0; i < 2; i++) {
-            persons.put(teacherIDList[i], new Teacher(teacherList[i], teacherLectureList[i], teacherIDList[i], passwd));
+            persons.put(teacherList[i], new Teacher(teacherList[i], teacherLectureList[i], teacherIDList[i], passwd));
+            idpw.put(teacherIDList[i], teacherList[i]);
         }
     }
 }
