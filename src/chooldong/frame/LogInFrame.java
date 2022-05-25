@@ -4,10 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import chooldong.request.AbstractDataRequest;
-import chooldong.request.AbstractAuthRequest;
-import chooldong.request.MockAuth;
-import chooldong.request.MockData;
+import chooldong.request.*;
 
 public class LogInFrame extends ChooldongFrame {
     protected JTextField idField;
@@ -15,6 +12,10 @@ public class LogInFrame extends ChooldongFrame {
     protected AbstractDataRequest dataRequest;
     protected AbstractAuthRequest authRequest;
     protected char userType;
+    protected AuthRequestForm arf;
+    protected String token;
+    protected String[] classList;
+    protected ClassListWindowFrame classListWindowFrame;
 
     public void init() {
         setDefault();
@@ -28,7 +29,7 @@ public class LogInFrame extends ChooldongFrame {
         viewBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                onViewBtnPressed();
+                onLogInBtnPressed();
             }
         });
 
@@ -38,10 +39,10 @@ public class LogInFrame extends ChooldongFrame {
         cp.add(pwField);
         cp.add(viewBtn);
 
-        if (authRequest==null){
+        if (authRequest == null) {
             authRequest = new MockAuth();
         }
-        if (dataRequest==null){
+        if (dataRequest == null) {
             dataRequest = new MockData();
         }
     }
@@ -56,18 +57,40 @@ public class LogInFrame extends ChooldongFrame {
         init();
     }
 
-    public String requestAuth() {
+    public void requestAuth() {
         /*
-        * 토큰 반환
-        * */
-        return authRequest.getToken(this.idField.getText(), this.pwField.getPassword(), this.userType);
+         * 토큰 반환
+         * */
+        AuthRequestForm arf = new AuthRequestForm(this.idField.getText(), this.pwField.getPassword(), this.userType);
+        this.arf = arf;
+        this.token = authRequest.getToken(arf);
     }
 
-    public void onViewBtnPressed() {
-        String token = this.requestAuth();
-        String[] classList = this.dataRequest.getClassList(token);
-        ClassListWindowFrame clwf = new ClassListWindowFrame(classList);
-        clwf.showWindow();
+    public ClassListWindowFrame getClassListWindow() {
+        return null;  // override 필요
+    }
+
+    public void onLogInBtnPressed() {
+        try {
+            this.requestAuth();
+
+            if (this.arf != null) {
+                this.classList = this.dataRequest.getClassList(this.token);
+
+                classListWindowFrame = this.getClassListWindow();
+                classListWindowFrame.setDefault();
+                classListWindowFrame.showWindow();
+                this.dispose();
+            } else {
+                this.onLogInFailed();
+            }
+        } catch (Exception e) {
+            this.onLogInFailed();
+        }
+    }
+
+    public void onLogInFailed() {
+        JOptionPane.showMessageDialog(null, "로그인 실패");
     }
 
 }
