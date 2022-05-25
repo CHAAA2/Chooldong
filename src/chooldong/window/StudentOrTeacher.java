@@ -10,9 +10,6 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class StudentOrTeacher extends ChooldongFrame {
-    AbstractAuthRequest authRequest;
-    AbstractDataRequest dataRequest;
-
     public void init() {
         setTitle("login");
         setDefault();  // 상속됨
