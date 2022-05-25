@@ -1,5 +1,6 @@
 package chooldong.window;
 
+import chooldong.frame.ClassListWindowFrame;
 import chooldong.frame.LogInFrame;
 import chooldong.frame.RoundedButton;
 import chooldong.request.AbstractAuthRequest;
@@ -11,37 +12,22 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TeacherLogin extends LogInFrame {
-    public void tlInit() {
+    public void init() {
+        super.init();
         this.userType = 't';
-
-        RoundedButton gen = new RoundedButton("생성");
-        gen.setBackground(Color.white);
-        gen.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                onGenBtnPressed();
-            }
-        });
-        cp.add(gen);
-
     }
+
+    @Override
+    public ClassListWindowFrame getClassListWindow() {
+        return new TeacherClassListWindow(this.classList, this.token);
+    }
+
     public TeacherLogin(AbstractDataRequest dataRequest, AbstractAuthRequest authRequest) {
-        this.dataRequest = dataRequest;
-        this.authRequest = authRequest;
-        tlInit();
+        super(dataRequest, authRequest);
     }
 
     public TeacherLogin(){
-        tlInit();
+        super();
     }
 
-    public void onGenBtnPressed() {
-        System.out.println(this.idField.getText());
-        System.out.println(this.pwField.getPassword());
-    }
-
-    public static void main(String[] args) {  // 테스트
-        TeacherLogin tl = new TeacherLogin();
-        tl.showWindow();
-    }
 }
