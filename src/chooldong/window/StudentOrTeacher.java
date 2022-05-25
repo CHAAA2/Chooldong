@@ -2,8 +2,6 @@ package chooldong.window;
 
 import chooldong.frame.ChooldongFrame;
 import chooldong.frame.RoundedButton;
-import chooldong.request.AbstractAuthRequest;
-import chooldong.request.AbstractDataRequest;
 
 import javax.swing.*;
 import java.awt.*;

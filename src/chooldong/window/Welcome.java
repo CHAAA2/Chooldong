@@ -1,10 +1,6 @@
 package chooldong.window;
 import chooldong.frame.ChooldongFrame;
 import chooldong.frame.ChooldongPanel;
-import chooldong.request.AbstractAuthRequest;
-import chooldong.request.AbstractDataRequest;
-import chooldong.request.MockAuth;
-import chooldong.request.MockData;
 
 import javax.swing.*;
 import java.awt.event.*;
