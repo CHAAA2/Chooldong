@@ -9,7 +9,7 @@ public class ChooldongFrame extends JFrame {
         this.cp = new ChooldongPanel();
     }
     public void setDefault(){
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setSize(800,600);
         setContentPane(cp);
     }

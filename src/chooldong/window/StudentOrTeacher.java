@@ -18,6 +18,7 @@ public class StudentOrTeacher extends ChooldongFrame {
     public void init() {
         setTitle("login");
         setDefault();  // 상속됨
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         cp.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 200));
         RoundedButton student = new RoundedButton("학습자");
         student.setPreferredSize(new Dimension(200, 100));
