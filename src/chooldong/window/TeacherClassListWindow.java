@@ -9,12 +9,10 @@ public class TeacherClassListWindow extends ClassListWindowFrame {
     }
 
     @Override
-    public void onCheckBtnClicked() {
-        super.onCheckBtnClicked();
-    }
-
-    @Override
     public void onChoolseokBtnClicked() {
         super.onChoolseokBtnClicked();
+        TeacherCodeSetWindow tcsw = new TeacherCodeSetWindow(this.token, this.cl.getSelectedValue());
+        tcsw.setDefault();
+        tcsw.showWindow();
     }
 }

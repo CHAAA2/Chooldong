@@ -45,12 +45,14 @@ public class MockData extends AbstractDataRequest {  // 데이터 요청 mock �
     }
 
     @Override
-    public void setChoolseokCode(String token, String lecturename, String code) {
+    public boolean setChoolseokCode(String token, String lecturename, String code) {
         if (Objects.equals(MockDB.lectures.get(lecturename).teacher, token)) {
             MockDB.lectures.get(lecturename).code = code;
+            return true;
         }
         else {
             System.out.println("wrong teacher");
+            return false;
         }
     }
 

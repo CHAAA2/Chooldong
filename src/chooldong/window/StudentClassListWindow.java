@@ -21,5 +21,8 @@ public class StudentClassListWindow extends ClassListWindowFrame {
     @Override
     public void onChoolseokBtnClicked() {
         super.onChoolseokBtnClicked();
+        StudentCodeEnterWindow scew = new StudentCodeEnterWindow(this.token, this.cl.getSelectedValue());
+        scew.setDefault();
+        scew.showWindow();
     }
 }

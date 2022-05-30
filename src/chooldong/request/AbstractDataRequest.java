@@ -10,7 +10,7 @@ public abstract class AbstractDataRequest {  // 데이터 요청 추상 클래�
     public abstract String[] getStudentList(String lecturename);
     public abstract String getTeacherName(String lecturename);
     public abstract void setManualChoolseockState(String token, String lecturename, String student, String state);
-    public abstract void setChoolseokCode(String token, String lecturename, String code);
+    public abstract boolean setChoolseokCode(String token, String lecturename, String code);
     public abstract boolean submitChoolseokCode(String lecturename, String token, String code);
     public abstract String getName(String token);
 }
