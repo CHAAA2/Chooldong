@@ -1,6 +1,8 @@
 package chooldong.frame;
 
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -29,6 +31,19 @@ public class ClassListWindowFrame extends ChooldongFrame {
         });
         this.cp.add(choolseokBtn);
         this.cp.add(checkBtn);
+        choolseokBtn.setEnabled(false);
+        checkBtn.setEnabled(false);
+
+        cl.addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                if (cl.getSelectedValue() != null) {
+                    choolseokBtn.setEnabled(true);
+                    checkBtn.setEnabled(true);
+                }
+            }
+        });
+
     }
 
     public void onChoolseokBtnClicked() {
