@@ -1,5 +1,9 @@
 package chooldong.frame;
 
+/*
+버튼 디자인 커스텀
+ */
+
 import javax.swing.*;
 import java.awt.*;
 

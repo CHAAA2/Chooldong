@@ -1,5 +1,7 @@
 package chooldong.frame;
 
+import chooldong.request.Request;
+
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -9,20 +11,23 @@ import java.awt.event.ActionListener;
 public class ClassListWindowFrame extends ChooldongFrame {
     public String token;
     public JList<String> cl;
+    public RoundedButton choolseokBtn;
+    public RoundedButton checkBtn;
+
     public ClassListWindowFrame(String[] classList, String token) {
         this.token = token;
         this.setDefault();
         this.cl = new JList<>();
         cl.setListData(classList);
         this.cp.add(cl);
-        RoundedButton choolseokBtn = new RoundedButton("출석");
+        this.choolseokBtn = new RoundedButton("출석");
         choolseokBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onChoolseokBtnClicked();
             }
         });
-        RoundedButton checkBtn = new RoundedButton("조회");
+        this.checkBtn = new RoundedButton("조회");
         checkBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,6 +49,8 @@ public class ClassListWindowFrame extends ChooldongFrame {
             }
         });
 
+        JLabel hello = new JLabel(Request.dataRequest.getName(this.token) + "님 안녕하세요.");
+        this.cp.add(hello);
     }
 
     public void onChoolseokBtnClicked() {

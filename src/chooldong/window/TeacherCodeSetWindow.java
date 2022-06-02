@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import java.util.Random;
 
 public class TeacherCodeSetWindow extends ChooldongFrame {
-    JTextField jtf;
+    JTextField randCodeField;
     String token;
     String lectureName;
 
@@ -22,11 +22,11 @@ public class TeacherCodeSetWindow extends ChooldongFrame {
     }
 
     public void onRegenBtnClicked() {
-        this.jtf.setText(randomCodeGenerate());
+        this.randCodeField.setText(randomCodeGenerate());
     }
 
     public void onSetBtnClicked() {
-        boolean response = Request.dataRequest.setChoolseokCode(this.token, this.lectureName, this.jtf.getText());
+        boolean response = Request.dataRequest.setChoolseokCode(this.token, this.lectureName, this.randCodeField.getText());
         if (response) {
             JOptionPane.showMessageDialog(this, "설정되었습니다.");
         } else {
@@ -56,8 +56,8 @@ public class TeacherCodeSetWindow extends ChooldongFrame {
         cp.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 200));
         Container c = getContentPane();
         c.setLayout(new FlowLayout());
-        this.jtf = new JTextField(30);
-        cp.add(jtf);
+        this.randCodeField = new JTextField(30);
+        cp.add(randCodeField);
 
 
         RoundedButton regenerateBtn = new RoundedButton("재생성");

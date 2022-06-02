@@ -47,6 +47,7 @@ public class LogInFrame extends ChooldongFrame {
     public void requestAuth() {
         /*
          * 토큰 반환
+         * mock 요청에서는 이름 반환
          * */
         AuthRequestForm arf = new AuthRequestForm(this.idField.getText(), this.pwField.getPassword(), this.userType);
         this.arf = arf;

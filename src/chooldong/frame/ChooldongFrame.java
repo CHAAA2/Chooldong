@@ -1,8 +1,10 @@
 package chooldong.frame;
 
 import javax.swing.*;
-import java.awt.*;
 
+/*
+프로젝트에서 공통적으로 사용할 JFrame 설정
+ */
 public class ChooldongFrame extends JFrame {
     public ChooldongPanel cp;
     public ChooldongFrame() {
