@@ -27,6 +27,7 @@ public class TeacherStudentChoolseokList extends ListWindowFrame {
         this.lateBtn = new RoundedButton("지각");
         this.btnPanel.setLayout(new GridLayout(3,1));
         this.btnPanel.add(lateBtn);
+        this.lateBtn.setEnabled(false);
 
         this.lateBtn.addActionListener(new ActionListener() {
             @Override
@@ -46,6 +47,12 @@ public class TeacherStudentChoolseokList extends ListWindowFrame {
             case "출석" -> this.space.setBackground(Color.BLUE);
         }
         this.space.setText(state);
+    }
+
+    @Override
+    protected void setBtnEnable() {
+        super.setBtnEnable();
+        this.lateBtn.setEnabled(true);
     }
 
     @Override

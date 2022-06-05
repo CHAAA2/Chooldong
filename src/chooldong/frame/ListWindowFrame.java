@@ -59,7 +59,7 @@ public class ListWindowFrame extends ChooldongFrame{
         this.setDefault();
     }
 
-    private void setBtnEnable() {
+    protected void setBtnEnable() {
             choolseokBtn.setEnabled(true);
             checkBtn.setEnabled(true);
     }
