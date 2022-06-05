@@ -1,5 +1,6 @@
 package chooldong.window;
 
+import chooldong.ChooldongIcon;
 import chooldong.frame.ListWindowFrame;
 import chooldong.frame.RoundedButton;
 import chooldong.request.Request;
@@ -9,6 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashMap;
+
 
 public class TeacherStudentChoolseokList extends ListWindowFrame {
     JLabel imgLabel;
@@ -41,10 +43,12 @@ public class TeacherStudentChoolseokList extends ListWindowFrame {
         HashMap<String, String> choolseokState = Request.dataRequest.getTeacherChoolseokState(this.token, this.lectureName);
         String state = choolseokState.get(this.cl.getSelectedValue());
         switch (state) {
-            case "결석" -> this.space.setBackground(Color.RED);
-            case "미처리" -> this.space.setBackground(Color.BLACK);
-            case "지각" -> this.space.setBackground(Color.YELLOW);
-            case "출석" -> this.space.setBackground(Color.BLUE);
+            case "결석" -> {
+                this.space.setIcon(ChooldongIcon.absentIcon);
+            }
+            case "미처리" -> this.space.setIcon(ChooldongIcon.defaultIcon);
+            case "지각" -> this.space.setIcon(ChooldongIcon.lateIcon);
+            case "출석" -> this.space.setIcon(ChooldongIcon.okIcon);
         }
         this.space.setText(state);
     }
