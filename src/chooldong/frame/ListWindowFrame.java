@@ -20,7 +20,6 @@ public class ListWindowFrame extends ChooldongFrame{
     protected ChooldongImgLabel middleLabel;
     protected JLabel upperLabel;
     protected JLabel lowerLabel;
-    protected String name;
     protected JPanel middlePanel;
 
     public ListWindowFrame(String[] listArray, String token) {
@@ -62,8 +61,6 @@ public class ListWindowFrame extends ChooldongFrame{
                 onValueChanged();
             }
         });
-
-        this.name = Request.dataRequest.getName(token);
 
         // middle panel
         this.middlePanel = new JPanel();
