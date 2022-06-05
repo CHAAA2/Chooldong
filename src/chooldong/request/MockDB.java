@@ -10,12 +10,14 @@ class Person {
     public String[] classes;
     private final String pw;
     public String id;
+    public String pic;
 
     public Person(String name, String[] classes, String id, String pw) {
         this.name = name;
         this.classes = classes;
         this.id = id;
         this.pw = pw;
+        this.pic = "res/" + id + ".jpeg";
     }
 
     public boolean login(String pw) {
@@ -58,6 +60,7 @@ public class MockDB {
     public static HashMap<String, Lecture> lectures = new HashMap<String, Lecture>();
     public static HashMap<String, Person> persons = new HashMap<String, Person>();
     public static HashMap<String, String> idpw = new HashMap<>();
+
     public MockDB() {
         String[] studentList = {"이재명", "윤석열", "안철수", "심상정"};
         String[] studentIDList = {"mrlee", "mryoon", "mrahn", "mrsshim"};
@@ -69,22 +72,22 @@ public class MockDB {
         String[] lectureList = {"융합프로그래밍2", "융합캡스톤디자인", "자료구조및알고리즘2", "웹프로그래밍"};
         String[][] lectureStudentList =
                 {{"이재명", "윤석열", "심상정"},
-                {"윤석열", "안철수", "심상정"},
-                {"이재명", "안철수", "심상정"},
-                {"이재명", "윤석열", "안철수"}};
+                        {"윤석열", "안철수", "심상정"},
+                        {"이재명", "안철수", "심상정"},
+                        {"이재명", "윤석열", "안철수"}};
         String[] lectureTeacherList = {"홍길동", "홍길동", "김철수", "김철수"};
         String[] teacherList = {"홍길동", "김철수"};
         String[] teacherIDList = {"profhong", "profkim"};
         String[][] teacherLectureList = {{"융합프로그래밍2", "융합캡스톤디자인"}, {"자료구조및알고리즘2", "웹프로그래밍"}};
         String passwd = "passwd";
 
-        for(int i=0; i < 4; i++) {
+        for (int i = 0; i < 4; i++) {
             persons.put(studentList[i], new Student(studentList[i], studentLectureList[i], studentIDList[i], passwd));
             lectures.put(lectureList[i], new Lecture(lectureList[i], lectureTeacherList[i], lectureStudentList[i]));
             idpw.put(studentIDList[i], studentList[i]);
         }
 
-        for(int i=0; i < 2; i++) {
+        for (int i = 0; i < 2; i++) {
             persons.put(teacherList[i], new Teacher(teacherList[i], teacherLectureList[i], teacherIDList[i], passwd));
             idpw.put(teacherIDList[i], teacherList[i]);
         }

@@ -1,4 +1,6 @@
 package chooldong.request;
+import javax.swing.*;
+import java.awt.*;
 import java.util.HashMap;
 import java.util.Objects;
 
@@ -70,6 +72,12 @@ public class MockData extends AbstractDataRequest {  // 데이터 요청 mock �
     @Override
     public String getName(String token) {
         return token;
+    }
+
+    @Override
+    public ImageIcon getPicture(String name) {
+        String picUrl = MockDB.persons.get(name).pic;
+        return new ImageIcon(picUrl);
     }
 
     public static void main(String[] args) {

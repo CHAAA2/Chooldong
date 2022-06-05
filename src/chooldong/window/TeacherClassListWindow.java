@@ -24,5 +24,8 @@ public class TeacherClassListWindow extends ClassListWindowFrame {
     @Override
     public void onCheckBtnClicked() {
         super.onCheckBtnClicked();
+        String[] studentList = Request.dataRequest.getStudentList(this.cl.getSelectedValue());
+        TeacherStudentChoolseokList tscl = new TeacherStudentChoolseokList(studentList, this.token, this.cl.getSelectedValue());
+        tscl.showWindow();
     }
 }

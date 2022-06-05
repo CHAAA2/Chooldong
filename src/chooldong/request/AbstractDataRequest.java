@@ -1,5 +1,7 @@
 package chooldong.request;
 
+import javax.swing.*;
+import java.awt.*;
 import java.util.HashMap;
 
 public abstract class AbstractDataRequest {  // 데이터 요청 추상 클래스
@@ -12,4 +14,5 @@ public abstract class AbstractDataRequest {  // 데이터 요청 추상 클래�
     public abstract boolean setChoolseokCode(String token, String lecturename, String code);
     public abstract boolean submitChoolseokCode(String lecturename, String token, String code);
     public abstract String getName(String token);
+    public abstract ImageIcon getPicture(String token);
 }
