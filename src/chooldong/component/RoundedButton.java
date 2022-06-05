@@ -1,4 +1,4 @@
-package chooldong.frame;
+package chooldong.component;
 
 /*
 버튼 디자인 커스텀

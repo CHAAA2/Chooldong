@@ -1,8 +1,8 @@
 package chooldong.window;
 
-import chooldong.ChooldongIcon;
+import chooldong.component.ChooldongIcon;
 import chooldong.frame.ListWindowFrame;
-import chooldong.frame.RoundedButton;
+import chooldong.component.RoundedButton;
 import chooldong.request.Request;
 
 import javax.swing.*;
@@ -13,21 +13,18 @@ import java.util.HashMap;
 
 
 public class TeacherStudentChoolseokList extends ListWindowFrame {
-    JLabel imgLabel;
     String lectureName;
     RoundedButton lateBtn;
+
     public TeacherStudentChoolseokList(String[] listArray, String token, String lectureName) {
         super(listArray, token);
         this.cp.setLayout(new GridLayout());
-        this.imgLabel = new JLabel();
-        this.cp.add(this.imgLabel);
         this.lectureName = lectureName;
-        this.space.setHorizontalAlignment(JLabel.CENTER);
 
-        this.choolseokBtn.setText("출석");
-        this.checkBtn.setText("결석");
+        this.btnOne.setText("출석");
+        this.btnTwo.setText("결석");
         this.lateBtn = new RoundedButton("지각");
-        this.btnPanel.setLayout(new GridLayout(3,1));
+        this.btnPanel.setLayout(new GridLayout(3, 1));
         this.btnPanel.add(lateBtn);
         this.lateBtn.setEnabled(false);
 
@@ -37,20 +34,20 @@ public class TeacherStudentChoolseokList extends ListWindowFrame {
                 onLateBtnClicked();
             }
         });
+        this.middlePanel.remove(2);
+        this.middlePanel.setLayout(new GridLayout(2,1 ));
     }
 
     public void updateChoolseokState() {
         HashMap<String, String> choolseokState = Request.dataRequest.getTeacherChoolseokState(this.token, this.lectureName);
         String state = choolseokState.get(this.cl.getSelectedValue());
         switch (state) {
-            case "결석" -> {
-                this.space.setIcon(ChooldongIcon.absentIcon);
-            }
-            case "미처리" -> this.space.setIcon(ChooldongIcon.defaultIcon);
-            case "지각" -> this.space.setIcon(ChooldongIcon.lateIcon);
-            case "출석" -> this.space.setIcon(ChooldongIcon.okIcon);
+            case "결석" -> this.middleLabel.setIcon(ChooldongIcon.absentIcon);
+            case "미처리" -> this.middleLabel.setIcon(ChooldongIcon.defaultIcon);
+            case "지각" -> this.middleLabel.setIcon(ChooldongIcon.lateIcon);
+            case "출석" -> this.middleLabel.setIcon(ChooldongIcon.okIcon);
         }
-        this.space.setText(state);
+        this.middleLabel.setText(state);
     }
 
     @Override
@@ -64,8 +61,8 @@ public class TeacherStudentChoolseokList extends ListWindowFrame {
         super.onValueChanged();
         System.out.println(this.cl.getSelectedValue());
         ImageIcon icon = Request.dataRequest.getPicture(this.cl.getSelectedValue());
-        icon.setImage(icon.getImage().getScaledInstance(200, 280,0));
-        this.imgLabel.setIcon(icon);
+        icon.setImage(icon.getImage().getScaledInstance(200, 280, 0));
+        this.upperLabel.setIcon(icon);
         updateChoolseokState();
     }
 
@@ -74,14 +71,14 @@ public class TeacherStudentChoolseokList extends ListWindowFrame {
     }
 
     @Override
-    public void onChoolseokBtnClicked() {
-        super.onChoolseokBtnClicked();
+    public void onBtnOneClicked() {
+        super.onBtnOneClicked();
         setChoolseokState("출석");
         updateChoolseokState();
     }
 
     @Override
-    public void onCheckBtnClicked() {
+    public void onBtnTwoClicked() {
         setChoolseokState("결석");
         updateChoolseokState();
     }

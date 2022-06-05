@@ -1,4 +1,4 @@
-package chooldong;
+package chooldong.component;
 
 import javax.swing.*;
 import java.awt.*;

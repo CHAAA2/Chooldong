@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
+import chooldong.component.RoundedButton;
 import chooldong.request.*;
 
 public class LogInFrame extends ChooldongFrame {

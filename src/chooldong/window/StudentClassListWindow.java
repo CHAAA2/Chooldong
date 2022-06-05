@@ -1,6 +1,6 @@
 package chooldong.window;
 
-import chooldong.ChooldongIcon;
+import chooldong.component.ChooldongIcon;
 import chooldong.frame.ClassListWindowFrame;
 import chooldong.request.Request;
 
@@ -16,15 +16,15 @@ public class StudentClassListWindow extends ClassListWindowFrame {
     }
 
     @Override
-    public void onCheckBtnClicked() {
-        super.onCheckBtnClicked();
+    public void onBtnTwoClicked() {
+        super.onBtnTwoClicked();
         String state = Request.dataRequest.getStudentChoolseockState(this.token, this.cl.getSelectedValue());
         JOptionPane.showMessageDialog(this, state);
     }
 
     @Override
-    public void onChoolseokBtnClicked() {
-        super.onChoolseokBtnClicked();
+    public void onBtnOneClicked() {
+        super.onBtnOneClicked();
         String state = Request.dataRequest.getStudentChoolseockState(this.token, this.cl.getSelectedValue());
         if (!Objects.equals(state, "미처리")) {
             JOptionPane.showMessageDialog(this, "이미 처리되었습니다.");
@@ -43,16 +43,16 @@ public class StudentClassListWindow extends ClassListWindowFrame {
         String state = getChoolseokState();
         switch (state) {
             case "출석" -> {
-                this.stateLabel.setIcon(ChooldongIcon.okIcon);
+                this.middleLabel.setIcon(ChooldongIcon.okIcon);
             }
             case "미처리" -> {
-                this.stateLabel.setIcon(ChooldongIcon.defaultIcon);
+                this.middleLabel.setIcon(ChooldongIcon.defaultIcon);
             }
             case "결석" -> {
-                this.stateLabel.setIcon(ChooldongIcon.absentIcon);
+                this.middleLabel.setIcon(ChooldongIcon.absentIcon);
             }
             case "지각" -> {
-                this.stateLabel.setIcon(ChooldongIcon.lateIcon);
+                this.middleLabel.setIcon(ChooldongIcon.lateIcon);
             }
         }
     }
@@ -60,7 +60,7 @@ public class StudentClassListWindow extends ClassListWindowFrame {
     @Override
     public void onValueChanged() {
         super.onValueChanged();
-        this.hello.setText(this.cl.getSelectedValue() + " 수업의 출석상태는 \"" + getChoolseokState() + "\" 입니다.");
+        this.middleLabel.setText(this.cl.getSelectedValue());
         this.setUpperLabelIcon();
     }
 }

@@ -1,10 +1,14 @@
 package chooldong.frame;
 
+import chooldong.component.ChooldongImgLabel;
+import chooldong.component.RoundedButton;
 import chooldong.request.Request;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,10 +16,14 @@ import java.awt.event.ActionListener;
 public class ListWindowFrame extends ChooldongFrame{
     public String token;
     public JList<String> cl;
-    public RoundedButton choolseokBtn;
-    public RoundedButton checkBtn;
+    public RoundedButton btnOne;
+    public RoundedButton btnTwo;
     public JPanel btnPanel;
-    public JLabel space;
+    protected ChooldongImgLabel middleLabel;
+    protected JLabel upperLabel;
+    protected JLabel lowerLabel;
+    protected String name;
+    protected JPanel middlePanel;
 
     public ListWindowFrame(String[] listArray, String token) {
         this.cp.setLayout(new GridLayout());
@@ -29,49 +37,80 @@ public class ListWindowFrame extends ChooldongFrame{
         this.btnPanel.setLayout(new GridLayout(2,1));
         this.cp.add(btnPanel);
 
-        this.choolseokBtn = new RoundedButton("출석");
-        choolseokBtn.addActionListener(new ActionListener() {
+        this.btnOne = new RoundedButton("출석");
+        btnOne.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                onChoolseokBtnClicked();
+                onBtnOneClicked();
             }
         });
-        this.checkBtn = new RoundedButton("조회");
-        checkBtn.addActionListener(new ActionListener() {
+        this.btnTwo = new RoundedButton("조회");
+        btnTwo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                onCheckBtnClicked();
+                onBtnTwoClicked();
             }
         });
-        this.btnPanel.add(choolseokBtn);
-        this.btnPanel.add(checkBtn);
-        choolseokBtn.setEnabled(false);
-        checkBtn.setEnabled(false);
+        this.btnPanel.add(btnOne);
+        this.btnPanel.add(btnTwo);
+        btnOne.setEnabled(false);
+        btnTwo.setEnabled(false);
 
-        this.space = new JLabel();
-        this.cp.add(space);
+        JLabel gridFilerLabel = new JLabel();
+        this.cp.add(gridFilerLabel);
         cl.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 onValueChanged();
             }
         });
+
+        this.name = Request.dataRequest.getName(token);
+
+        // middle panel
+        this.middlePanel = new JPanel();
+        this.middlePanel.setLayout(new GridLayout(3,1));
+        this.middlePanel.setOpaque(false);
+        this.middlePanel.setVisible(true);
+
+        // upper
+        this.upperLabel = new JLabel();
+        this.upperLabel.setHorizontalAlignment(JLabel.CENTER);
+
+
+        // middle
+        this.middleLabel = new ChooldongImgLabel();
+//        SimpleAttributeSet attribs = new SimpleAttributeSet();
+//        StyleConstants.setAlignment(attribs, StyleConstants.ALIGN_CENTER);
+//        this.middleLabel.setParagraphAttributes(attribs, true);
+//        this.middleLabel.setOpaque(false);
+
+        // lower
+        this.lowerLabel = new JLabel();
+
+        this.middlePanel.add(this.upperLabel);
+        this.middlePanel.add(this.middleLabel);
+        this.middlePanel.add(this.lowerLabel);
+
+        this.cp.add(middlePanel);
+        this.cp.add(new JLabel());
+
         this.setDefault();
     }
 
     protected void setBtnEnable() {
-            choolseokBtn.setEnabled(true);
-            checkBtn.setEnabled(true);
+            btnOne.setEnabled(true);
+            btnTwo.setEnabled(true);
     }
 
     public void onValueChanged() {
         setBtnEnable();
     }
 
-    public void onChoolseokBtnClicked() {
+    public void onBtnOneClicked() {
     }
 
-    public void onCheckBtnClicked() {
+    public void onBtnTwoClicked() {
     }
 
 }

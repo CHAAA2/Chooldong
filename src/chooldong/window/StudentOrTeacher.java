@@ -1,7 +1,7 @@
 package chooldong.window;
 
 import chooldong.frame.ChooldongFrame;
-import chooldong.frame.RoundedButton;
+import chooldong.component.RoundedButton;
 
 import javax.swing.*;
 import java.awt.*;
