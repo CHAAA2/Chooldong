@@ -9,6 +9,7 @@ import java.awt.*;
 
 public class ClassListWindowFrame extends ListWindowFrame {
     protected JTextPane hello;
+    protected JLabel stateLabel;
     protected String name;
     protected JPanel middlePanel;
     public ClassListWindowFrame(String[] classList, String token) {
@@ -21,7 +22,10 @@ public class ClassListWindowFrame extends ListWindowFrame {
         this.middlePanel.setLayout(new GridLayout(3,1));
         this.middlePanel.setOpaque(false);
         this.middlePanel.setVisible(true);
-        this.middlePanel.add(new JLabel());
+
+        this.stateLabel = new JLabel();
+        this.stateLabel.setHorizontalAlignment(JLabel.CENTER);
+        this.middlePanel.add(this.stateLabel);
 
         SimpleAttributeSet attribs = new SimpleAttributeSet();
         StyleConstants.setAlignment(attribs, StyleConstants.ALIGN_CENTER);
@@ -30,6 +34,7 @@ public class ClassListWindowFrame extends ListWindowFrame {
         this.cp.add(middlePanel);
         this.middlePanel.add(hello);
         this.middlePanel.add(new JLabel());
+//        this.middlePanel.add(this.stateLabel);
         this.cp.add(new JLabel());
 
     }

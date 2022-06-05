@@ -1,5 +1,6 @@
 package chooldong.window;
 
+import chooldong.ChooldongIcon;
 import chooldong.frame.ClassListWindowFrame;
 import chooldong.request.Request;
 
@@ -38,9 +39,28 @@ public class StudentClassListWindow extends ClassListWindowFrame {
         return Request.dataRequest.getStudentChoolseockState(this.token, this.cl.getSelectedValue());
     }
 
+    public void setUpperLabelIcon() {
+        String state = getChoolseokState();
+        switch (state) {
+            case "출석" -> {
+                this.stateLabel.setIcon(ChooldongIcon.okIcon);
+            }
+            case "미처리" -> {
+                this.stateLabel.setIcon(ChooldongIcon.defaultIcon);
+            }
+            case "결석" -> {
+                this.stateLabel.setIcon(ChooldongIcon.absentIcon);
+            }
+            case "지각" -> {
+                this.stateLabel.setIcon(ChooldongIcon.lateIcon);
+            }
+        }
+    }
+
     @Override
     public void onValueChanged() {
         super.onValueChanged();
         this.hello.setText(this.cl.getSelectedValue() + " 수업의 출석상태는 \"" + getChoolseokState() + "\" 입니다.");
+        this.setUpperLabelIcon();
     }
 }
