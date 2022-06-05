@@ -71,10 +71,12 @@ public class MockDB {
                 {"융합프로그래밍2", "융합캡스톤디자인", "자료구조및알고리즘2"}};
         String[] lectureList = {"융합프로그래밍2", "융합캡스톤디자인", "자료구조및알고리즘2", "웹프로그래밍"};
         String[][] lectureStudentList =
-                {{"이재명", "윤석열", "심상정"},
+                {
+                        {"이재명", "윤석열", "심상정"},
                         {"윤석열", "안철수", "심상정"},
                         {"이재명", "안철수", "심상정"},
-                        {"이재명", "윤석열", "안철수"}};
+                        {"이재명", "윤석열", "안철수"}
+                };
         String[] lectureTeacherList = {"홍길동", "홍길동", "김철수", "김철수"};
         String[] teacherList = {"홍길동", "김철수"};
         String[] teacherIDList = {"profhong", "profkim"};

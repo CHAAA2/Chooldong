@@ -60,7 +60,7 @@ public class TeacherCodeSetWindow extends ChooldongFrame {
         cp.add(randCodeField);
 
 
-        RoundedButton regenerateBtn = new RoundedButton("재생성");
+        RoundedButton regenerateBtn = new RoundedButton("코드 생성");
         RoundedButton setBtn = new RoundedButton("설정");
 
         cp.add(regenerateBtn);
