@@ -9,6 +9,7 @@ import java.util.Objects;
 public class StudentClassListWindow extends ClassListWindowFrame {
     static final char userType = 's';
 
+
     public StudentClassListWindow(String[] classList, String token) {
         super(classList, token);
     }
@@ -31,5 +32,15 @@ public class StudentClassListWindow extends ClassListWindowFrame {
             scew.setDefault();
             scew.showWindow();
         }
+    }
+
+    public String getChoolseokState() {
+        return Request.dataRequest.getStudentChoolseockState(this.token, this.cl.getSelectedValue());
+    }
+
+    @Override
+    public void onValueChanged() {
+        super.onValueChanged();
+        this.hello.setText(this.cl.getSelectedValue() + " 수업의 출석상태는 \"" + getChoolseokState() + "\" 입니다.");
     }
 }
