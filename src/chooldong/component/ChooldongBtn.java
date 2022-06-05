@@ -7,12 +7,12 @@ package chooldong.component;
 import javax.swing.*;
 import java.awt.*;
 
-public class RoundedButton extends JButton {
-    public RoundedButton() { super(); decorate(); }
-    public RoundedButton(String text) { super(text); decorate(); }
-    public RoundedButton(Action action) { super(action); decorate(); }
-    public RoundedButton(Icon icon) { super(icon); decorate(); }
-    public RoundedButton(String text, Icon icon) { super(text, icon); decorate(); }
+public class ChooldongBtn extends JButton {
+    public ChooldongBtn() { super(); decorate(); }
+    public ChooldongBtn(String text) { super(text); decorate(); }
+    public ChooldongBtn(Action action) { super(action); decorate(); }
+    public ChooldongBtn(Icon icon) { super(icon); decorate(); }
+    public ChooldongBtn(String text, Icon icon) { super(text, icon); decorate(); }
     protected void decorate() { setBorderPainted(false); setOpaque(false); }
 
     @Override

@@ -1,7 +1,7 @@
 package chooldong.window;
 
 import chooldong.frame.ChooldongFrame;
-import chooldong.component.RoundedButton;
+import chooldong.component.ChooldongBtn;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,12 +13,12 @@ public class StudentOrTeacher extends ChooldongFrame {
         setDefault();  // 상속됨
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         cp.setLayout(new FlowLayout(FlowLayout.CENTER, 100, 200));
-        RoundedButton student = new RoundedButton("학습자");
+        ChooldongBtn student = new ChooldongBtn("학습자");
         student.setPreferredSize(new Dimension(200, 100));
         student.setFont(new Font("고딕",Font.BOLD,30));
         student.addActionListener(new SotListener());
 
-        RoundedButton teacher = new RoundedButton("교수자");
+        ChooldongBtn teacher = new ChooldongBtn("교수자");
         teacher.setPreferredSize(new Dimension(200, 100));
         teacher.setFont(new Font("고딕",Font.BOLD,30));
         teacher.addActionListener(new SotListener());

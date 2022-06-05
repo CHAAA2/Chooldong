@@ -1,7 +1,7 @@
 package chooldong.window;
 
 import chooldong.frame.ChooldongFrame;
-import chooldong.component.RoundedButton;
+import chooldong.component.ChooldongBtn;
 import chooldong.request.Request;
 
 import javax.swing.*;
@@ -59,8 +59,8 @@ public class TeacherCodeSetWindow extends ChooldongFrame {
         this.randCodeField = new JTextField(30);
         cp.add(randCodeField);
 
-        RoundedButton regenerateBtn = new RoundedButton("코드 생성");
-        RoundedButton setBtn = new RoundedButton("설정");
+        ChooldongBtn regenerateBtn = new ChooldongBtn("코드 생성");
+        ChooldongBtn setBtn = new ChooldongBtn("설정");
 
         cp.add(regenerateBtn);
         cp.add(setBtn);

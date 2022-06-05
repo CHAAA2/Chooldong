@@ -1,7 +1,7 @@
 package chooldong.window;
 
 import chooldong.frame.ChooldongFrame;
-import chooldong.component.RoundedButton;
+import chooldong.component.ChooldongBtn;
 import chooldong.request.Request;
 
 import javax.swing.*;
@@ -32,7 +32,7 @@ public class StudentCodeEnterWindow extends ChooldongFrame {
         this.randomCodeField = new JTextField(40);
         cp.add(new JLabel("출석코드를 입력하세요"));
         cp.add(randomCodeField);
-        RoundedButton check = new RoundedButton("출석");
+        ChooldongBtn check = new ChooldongBtn("출석");
         check.setPreferredSize(new Dimension(200, 100));
         check.setFont(new Font("고딕", Font.BOLD, 30));
         check.addActionListener(new ActionListener() {

@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-import chooldong.component.RoundedButton;
+import chooldong.component.ChooldongBtn;
 import chooldong.request.*;
 
 public class LogInFrame extends ChooldongFrame {
@@ -23,7 +23,7 @@ public class LogInFrame extends ChooldongFrame {
         this.idField = new JTextField(20);
         this.pwField = new JPasswordField(20);
 
-        RoundedButton viewBtn = new RoundedButton("조회");
+        ChooldongBtn viewBtn = new ChooldongBtn("조회");
 
         viewBtn.addActionListener(new ActionListener() {
             @Override

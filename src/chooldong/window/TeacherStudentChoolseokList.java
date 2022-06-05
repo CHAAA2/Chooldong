@@ -2,7 +2,7 @@ package chooldong.window;
 
 import chooldong.component.ChooldongIcon;
 import chooldong.frame.ListWindowFrame;
-import chooldong.component.RoundedButton;
+import chooldong.component.ChooldongBtn;
 import chooldong.request.Request;
 
 import javax.swing.*;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 
 public class TeacherStudentChoolseokList extends ListWindowFrame {
     String lectureName;
-    RoundedButton lateBtn;
+    ChooldongBtn lateBtn;
 
     public TeacherStudentChoolseokList(String[] listArray, String token, String lectureName) {
         super(listArray, token);
@@ -23,7 +23,7 @@ public class TeacherStudentChoolseokList extends ListWindowFrame {
 
         this.btnOne.setText("출석");
         this.btnTwo.setText("결석");
-        this.lateBtn = new RoundedButton("지각");
+        this.lateBtn = new ChooldongBtn("지각");
         this.btnPanel.setLayout(new GridLayout(3, 1));
         this.btnPanel.add(lateBtn);
         this.lateBtn.setEnabled(false);

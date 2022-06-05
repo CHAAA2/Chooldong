@@ -1,14 +1,12 @@
 package chooldong.frame;
 
 import chooldong.component.ChooldongImgLabel;
-import chooldong.component.RoundedButton;
+import chooldong.component.ChooldongBtn;
 import chooldong.request.Request;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import javax.swing.text.SimpleAttributeSet;
-import javax.swing.text.StyleConstants;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -16,8 +14,8 @@ import java.awt.event.ActionListener;
 public class ListWindowFrame extends ChooldongFrame{
     public String token;
     public JList<String> cl;
-    public RoundedButton btnOne;
-    public RoundedButton btnTwo;
+    public ChooldongBtn btnOne;
+    public ChooldongBtn btnTwo;
     public JPanel btnPanel;
     protected ChooldongImgLabel middleLabel;
     protected JLabel upperLabel;
@@ -37,14 +35,14 @@ public class ListWindowFrame extends ChooldongFrame{
         this.btnPanel.setLayout(new GridLayout(2,1));
         this.cp.add(btnPanel);
 
-        this.btnOne = new RoundedButton("출석");
+        this.btnOne = new ChooldongBtn("출석");
         btnOne.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 onBtnOneClicked();
             }
         });
-        this.btnTwo = new RoundedButton("조회");
+        this.btnTwo = new ChooldongBtn("조회");
         btnTwo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
